@@ -2,25 +2,21 @@ let express = require("express")
 let router = express.Router();
 
 
-router.get("/", (req, res) => {
-    res.json({
-        msg: "get all workout"
-    })
-})
+// importing fnc from controller
+let { createWorkout, getSingleWorkout, getWorkouts } = require("../Controllers/workoutsController")
 
 
-router.get("/:id", (req, res) => {
-    res.json({
-        msg: "get a single workout"
-    })
-})
+
+router.get("/", getWorkouts)
+
+
+router.get("/:id", getSingleWorkout)
 
 // POST a new workout
-router.post("/:id", (req, res) => {
-    res.json({
-        msg: "add a new workout"
-    })
-})
+
+// now i want to directly import fnc of create a workout
+
+router.post("/", createWorkout);
 
 
 
