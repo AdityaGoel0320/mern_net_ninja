@@ -3,7 +3,7 @@ let router = express.Router();
 
 
 // importing fnc from controller
-let { createWorkout, getSingleWorkout, getWorkouts } = require("../Controllers/workoutsController")
+let { createWorkout, getSingleWorkout, getWorkouts , D , updateWorkout } = require("../Controllers/workoutsController")
 
 
 
@@ -22,21 +22,13 @@ router.post("/", createWorkout);
 
 
 // UPDATE a new workout
-router.patch("/:id", (req, res) => {
-    res.json({
-        msg: "update a new workout"
-    })
-})
+router.patch("/:id",updateWorkout)
 
 
 
 
 // DELETE a new workout
-router.delete("/:id", (req, res) => {
-    res.json({
-        msg: "DELETE a new workout"
-    })
-})
+router.delete("/:id",D) ; 
 
 
 
