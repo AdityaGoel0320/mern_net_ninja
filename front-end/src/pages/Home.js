@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 export default function Home() {
-  const [workouts, setworkouts] = useState(null)
+  const [workouts, setworkouts] = useState([])
 
 
   useEffect(() => {
@@ -11,28 +11,21 @@ export default function Home() {
       let response = await fetch('/api/workouts')
       let json = response.json();
 
-      setworkouts(json)
       console.log(workouts)
-      // if (response.ok) {
-      //   setworkouts(json)
-      // }
+      if (response.ok) {
+        setworkouts(json)
+      }
     }
     fetchworkouts();
   }, [])
 
   return (
     <>
-      <div>Home</div>
+      <div>Home kgbjfrtguj</div>
 
       <div className="workouts">
 
-        {
-          workouts && workouts.map((workout) => {
-            return (
-              <p key={workout._id}>{workout.title}</p>
-            )
-          })
-        }
+              {workouts}
       </div>
     </>
   )
